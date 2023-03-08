@@ -1,5 +1,22 @@
-<script></script>
+<script>
+import CardList from "./components/CardList.vue";
+import AppHeader from "./components/AppHeader.vue";
 
-<template></template>
+export default {
+  components: {
+    CardList,
+    AppHeader,
+  },
+};
+</script>
 
-<style lang="scss"></style>
+<template>
+  <AppHeader />
+  <main>
+    <CardList />
+  </main>
+</template>
+
+<style lang="scss">
+@use "./assets/scss/style.scss";
+</style>
