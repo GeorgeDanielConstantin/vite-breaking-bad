@@ -21,12 +21,18 @@ export default {
 <template>
   <section>
     <div class="container p-4 text-center">
-      <div class="row row-cols-5 gy-3">
-        <div class="col" v-for="card in cards">
-          <img :src="card.card_images.image_url" class="img-fluid" alt="" />
-          <h3>{{ card.name }}</h3>
+      <div class="row row-cols-5 g-4">
+        <div class="col my-5" v-for="card in cards">
+          <div>
+            <img
+              :src="card.card_images[0].image_url"
+              class="img-fluid"
+              alt=""
+            />
+            <h5>{{ card.name }}</h5>
 
-          <p>{{ card.archetype }}</p>
+            <p>{{ card.type }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -40,9 +46,18 @@ export default {
 
 .col {
   height: 200px;
-  background-color: #d48f38;
 }
-h3 {
+
+.col > div {
+  background-color: #d48f38;
+  width: 150px;
+}
+h5 {
   color: white;
+}
+
+.col img {
+  height: 200px;
+  width: 150px;
 }
 </style>
