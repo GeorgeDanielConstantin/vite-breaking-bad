@@ -35,20 +35,28 @@ export default {
       ],
     };
   },
+  emits: ["invio-dati"],
+
+  methods: {
+    selectedType() {
+      this.$emit("invio-dati", this.searchedType);
+    },
+  },
 };
 </script>
 
 <template>
   <div class="container p-4">
-    <div class="input-group">
+    <div class="input-group" @submit.prevent="">
       <select
         class="form-select"
         id="inputGroupSelect04"
         aria-label="Example select with button addon"
+        v-model="searchedType"
+        @change="if (searchedType) selectedType();"
       >
         <option v-for="cardType in cardTypes">{{ cardType }}</option>
       </select>
-      <button class="btn btn-outline-secondary" type="button">Search</button>
     </div>
   </div>
 </template>
